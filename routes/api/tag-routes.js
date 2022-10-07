@@ -12,7 +12,7 @@ router.get('/', async(req, res) => {
         model: Product
       }]
     });
-    res.json(tags);
+    res.status(200).json(tags);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -30,7 +30,7 @@ router.get('/:id', async(req, res) => {
         model: Product
       }]
     });
-    res.json(tagID);
+    res.status(200).json(tagID);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -40,7 +40,7 @@ router.post('/', async(req, res) => {
   // create a new tag
   try {
     const newTag = await Category.create(req.body);
-    res.json(newTag);
+    res.status(200).json(newTag);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -54,7 +54,7 @@ router.put('/:id', async(req, res) => {
         id: req.params.id
       }
     });
-    res.json(updatedTag);
+    res.status(200).json(updatedTag);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -64,7 +64,7 @@ router.delete('/:id', async(req, res) => {
   // delete on tag by its `id` value
   try {
     const deletedTag = await Category.destroy(req.body);
-    res.json(deletedTag);
+    res.status(200).json(deletedTag);
   } catch (error) {
     res.status(500).json(error);
   }

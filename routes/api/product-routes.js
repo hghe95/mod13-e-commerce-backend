@@ -17,8 +17,8 @@ router.get('/', async(req, res) => {
       }
     ]
     });
-    res.json(products);
-  } catch {
+    res.status(200).json(products);
+  } catch (error) {
     res.status(500).json(error);
   }
 });
@@ -39,8 +39,8 @@ router.get('/:id', async(req, res) => {
         model: Tag
       }]
     });
-    res.json(productID);
-  } catch {
+    res.status(200).json(productID);
+  } catch (error) {
     res.status(500).json(error);
   }
 });
@@ -127,8 +127,8 @@ router.delete('/:id', async(req, res) => {
         id: req.params.id
       }
     });
-    res.json(deletedProduct);
-  } catch {
+    res.status(200).json(deletedProduct);
+  } catch (error) {
     res.status(500).json(error);
   }
 });

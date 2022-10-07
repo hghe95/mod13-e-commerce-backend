@@ -12,7 +12,7 @@ router.get('/', async(req, res) => {
         model: Product
       }]
     });
-    res.json(categories);
+    res.status(200).json(categories);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -30,7 +30,7 @@ router.get('/:id', async(req, res) => {
         model: Product
       }]
     });
-    res.json(categoryID);
+    res.status(200).json(categoryID);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -40,7 +40,7 @@ router.post('/', async(req, res) => {
   // create a new category
   try {
     const newCategory = await Category.create(req.body);
-    res.json(newCategory);
+    res.status(200).json(newCategory);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -54,7 +54,7 @@ router.put('/:id', async(req, res) => {
         id: req.params.id
       }
     });
-    res.json(updatedCategory);
+    res.status(200).json(updatedCategory);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -64,7 +64,7 @@ router.delete('/:id', async(req, res) => {
   // delete a category by its `id` value
   try {
     const deletedCategory = await Category.destroy(req.body);
-    res.json(deletedCategory);
+    res.status(200).json(deletedCategory);
   } catch (error) {
     res.status(500).json(error);
   }
